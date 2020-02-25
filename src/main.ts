@@ -14,7 +14,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup("api", app, document, { customfavIcon: "https://debugger.trendemon.com/favicon.ico", customCss: ".swagger-ui .topbar {background-color:#7b11b7}" });
 
-  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  app.useGlobalPipes(new ValidationPipe({ transform: true, transformOptions: { enableImplicitConversion: true } }));
   await app.listen(3000);
 }
 bootstrap();
